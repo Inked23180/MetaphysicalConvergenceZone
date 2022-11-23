@@ -1,0 +1,25 @@
+﻿using Microsoft.AspNetCore.Mvc.RazorPages;
+using Microsoft.Extensions.Logging;
+using System.Globalization;
+using System;
+using Microsoft.AspNetCore.Authorization;
+
+namespace MetaphysicalConvergenceZone1._0.Pages
+{
+    [AllowAnonymous]
+    public class PrivacyModel : PageModel
+    {
+        private readonly ILogger<PrivacyModel> _logger;
+
+        public PrivacyModel(ILogger<PrivacyModel> logger)
+        {
+            _logger = logger;
+        }
+
+        public void OnGet()
+        {
+            string dateTime = DateTime.Now.ToString("d", new CultureInfo("en-US"));
+            ViewData["TimeStamp"] = dateTime;
+        }
+    }
+}
